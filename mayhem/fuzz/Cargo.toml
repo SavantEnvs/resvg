@@ -1,0 +1,22 @@
+[package]
+name = "resvg-mayhem-fuzz"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+usvg = { path = "../../crates/usvg", default-features = false }
+
+[[bin]]
+name = "tree_from_bytes"
+path = "fuzz_targets/tree_from_bytes.rs"
+test = false
+doc = false
+bench = false
+
+[workspace]
+members = ["."]

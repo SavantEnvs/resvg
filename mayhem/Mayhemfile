@@ -1,0 +1,6 @@
+project: savantenvs/resvg
+target: tree-from-bytes
+duration: 300
+
+cmds:
+  - cmd: /mayhem/tree-from-bytes
