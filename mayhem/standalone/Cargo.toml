@@ -1,0 +1,25 @@
+[package]
+name = "resvg-mayhem-standalone"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+usvg = { path = "../../usvg" }
+
+[[bin]]
+name = "tree_from_bytes_standalone"
+path = "src/main.rs"
+test = false
+doc = false
+bench = false
+
+# A panic must terminate the process with SIGABRT so a non-fuzzer reproducer run still registers as
+# a crash (an unwinding panic would merely exit 101 and read as a clean run).
+[profile.release]
+panic = "abort"
+debug = 2
+
+# An added crate under mayhem/ must declare its own workspace — the upstream root manifest must not
+# be edited to list it.
+[workspace]

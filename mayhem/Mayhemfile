@@ -1,0 +1,13 @@
+# origin: https://app.mayhem.security/mayhemheroes/resvg/tree-from-bytes/12
+project: savantenvs/resvg
+target: tree-from-bytes-buggy-mhh-run-12
+duration: 300
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+
+cmds:
+  - cmd: /mayhem/tree-from-bytes
+    libfuzzer: true
+  - cmd: /mayhem/tree-from-bytes-standalone @@
+    libfuzzer: false
